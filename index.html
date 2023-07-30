@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <div id="bg"></div>
+      <div id="top">
+        <img class="logo" src="images/logo.svg" alt="logo" />
+        <article class="nav" id="nav">
+          <div class="navbar">
+            <div class="features">
+              <div class="navItems" id="features">
+                <p>Features</p>
+                <img src="images/icon-arrow-down.svg" id="ftimg" />
+              </div>
+              <div class="dropdown" id="ftdrop">
+                <div class="row">
+                  <img src="images/icon-todo.svg" alt="todo" />
+                  <p>Todo List</p>
+                </div>
+                <div class="row">
+                  <img src="images/icon-calendar.svg" alt="calendar" />
+                  <p>Calendar</p>
+                </div>
+                <div class="row">
+                  <img src="images/icon-reminders.svg" alt="reminders" />
+                  <p>Reminders</p>
+                </div>
+                <div class="row">
+                  <img src="images/icon-planning.svg" alt="planning" />
+                  <p>Planning</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div id="company" class="navItems">
+                <p>Company</p>
+                <img src="images/icon-arrow-down.svg" id="cmpimg" />
+              </div>
+              <div class="dropdown" id="cmpdrop">
+                <p>History</p>
+                <p>Our Team</p>
+                <p>Blog</p>
+              </div>
+            </div>
+            <p class="navItems" id="careers">Careers</p>
+            <p class="navItems">About</p>
+          </div>
+          <div class="sign">
+            <button id="login">Login</button>
+            <button id="reg">Register</button>
+          </div>
+        </article>
+        <div id="menu">
+          <div class="line" id="line1"></div>
+          <div class="line" id="line2"></div>
+          <div class="line" id="line3"></div>
+        </div>
+      </div>
+
+      <img class="image" src="images/image-hero-mobile.png" alt="main image" />
+      <div class="flex">
+        <img class="img" src="images/image-hero-desktop.png" alt="main image" />
+        <div id="left">
+          <article class="text">
+            <h1>Make remote work</h1>
+            <p>
+              Get your team in sync, no matter your location. Streamline
+              processes, create team rituals, and watch productivity soar.
+            </p>
+            <button id="button">Learn more</button>
+          </article>
+
+          <article class="clients">
+            <img id="client1" alt="client" src="images/client-databiz.svg" />
+            <img id="client2" alt="client" src="images/client-audiophile.svg" />
+            <img id="client3" alt="client" src="images/client-meet.svg" />
+            <img id="client4" alt="client" src="images/client-maker.svg" />
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Feng</a>.
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

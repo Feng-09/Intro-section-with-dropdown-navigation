@@ -1,0 +1,666 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+@font-face {
+  font-family: Epilogue;
+  src: url(fonts/Epilogue-VariableFont_wght.ttf);
+}
+
+/*colors*/
+$white: hsl(0, 0%, 98%);
+$grey: hsl(0, 0%, 41%);
+$black: hsl(0, 0%, 8%);
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bg {
+  position: absolute;
+  z-index: 0.5px;
+  pointer-events: none;
+  background-color: $black;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+#bg.active {
+  opacity: 0.8;
+  transition: 0.5s;
+  pointer-events: all;
+}
+
+.nav {
+  position: fixed;
+  opacity: 0;
+  right: -33.5%;
+  background-color: $white;
+  width: 67%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.5s;
+  z-index: 1px;
+  top: 0px;
+  padding-top: 4.5rem;
+  pointer-events: none;
+}
+
+.navbar {
+  max-height: 25rem;
+  min-height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.navItems {
+  height: fit-content;
+  width: fit-content;
+  transition: 0.4s;
+}
+
+#careers {
+  margin-bottom: 2rem;
+}
+
+.navItems.active {
+  transform: scale(1.1, 1.1);
+  transition: 0.4s;
+}
+
+.navItems:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+  transition: 0.4s;
+}
+
+#ftimg {
+  transition: 0.3s;
+}
+
+#cmpimg {
+  transition: 0.3s;
+}
+
+.arrow {
+  transform: rotate(-180deg);
+  transition: 0.3s;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem 0;
+  opacity: 0;
+  position: relative;
+  left: 1rem;
+  bottom: 3rem;
+  transition: 0.4s;
+  pointer-events: none;
+  height: 0px;
+}
+
+#ftdrop.active {
+  height: 9rem;
+  opacity: 1;
+  pointer-events: all;
+  bottom: 0px;
+  transition: 0.3s;
+}
+
+#cmpdrop.active {
+  height: 7rem;
+  opacity: 1;
+  pointer-events: all;
+  bottom: 0px;
+  transition: 0.3s;
+}
+
+#cmpdrop p {
+  transition: 0.4s;
+  height: fit-content;
+  width: fit-content;
+}
+
+#cmpdrop p:hover {
+  cursor: pointer;
+  transform: scale(1.05, 1.05);
+  transition: 0.4s;
+}
+
+.row img {
+  margin-right: 0.5rem;
+}
+
+.row {
+  transition: 0.4s;
+  height: fit-content;
+}
+
+.row:hover {
+  cursor: pointer;
+  transform: scale(1.05, 1.05);
+  transition: 0.4s;
+}
+
+.sign {
+  display: flex;
+  flex-direction: column;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+#reg {
+  width: 100%;
+  height: 2.7rem;
+  font-family: Epilogue;
+  color: $grey;
+  border-radius: 1rem;
+  border: 2px solid $grey;
+  transition: 0.5s;
+}
+
+#reg:hover {
+  border: 2px solid $black;
+  cursor: pointer;
+  color: $black;
+  transform: scale(1.08, 1.08);
+  transition: 0.5s;
+}
+
+#login {
+  width: 100%;
+  height: 2.5rem;
+  font-family: Epilogue;
+  color: $grey;
+  border: none;
+  position: static;
+  margin-bottom: 0.5rem;
+  transition: 0.5s;
+}
+
+#login:hover {
+  color: $black;
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: 0.5s;
+}
+
+.nav.slideIn {
+  opacity: 1;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  pointer-events: all;
+}
+
+#line1.active {
+  animation: Anim1;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+#line1.rest {
+  animation: Anim4;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#line2 {
+  transition: 0.25s;
+  transition-delay: 0.25s;
+}
+
+#line2.active {
+  transform: translateX(1rem);
+  opacity: 0;
+  transition: 0.25s;
+  transition-delay: 0.25s;
+}
+
+#line3.active {
+  animation: Anim3;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+#line3.rest {
+  animation: Anim5;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes Anim1 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(0.5rem);
+  }
+
+  100% {
+    transform: translateY(0.45rem) rotate(45deg);
+  }
+}
+
+@keyframes Anim3 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-0.5rem);
+  }
+
+  100% {
+    transform: translateY(-0.45rem) rotate(-45deg);
+  }
+}
+
+@keyframes Anim4 {
+  0% {
+    transform: translateY(0.45rem) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(0.5rem);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes Anim5 {
+  0% {
+    transform: translateY(-0.45rem) rotate(-45deg);
+  }
+
+  50% {
+    transform: translateY(-0.5rem);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.logo {
+  margin: 1rem;
+}
+
+.image {
+  width: 100vw;
+}
+
+.img {
+  display: none;
+}
+
+#menu {
+  height: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: right;
+  margin: 1rem;
+  z-index: 1.5px;
+}
+
+#menu:hover {
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: 0.5s;
+}
+
+.line {
+  width: 1.8rem;
+  height: 0.1rem;
+  background-color: $black;
+}
+
+.text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+  height: 11rem;
+}
+
+h1 {
+  font-family: Epilogue;
+  font-weight: 700;
+  font-size: 1.9em;
+  color: $black;
+  text-align: center;
+}
+
+p {
+  font-family: Epilogue;
+  color: $grey;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.3em;
+  display: inline-block;
+  max-width: 400px;
+}
+
+#button {
+  background-color: $black;
+  width: 7.5rem;
+  height: 2.4rem;
+  border-radius: 0.8rem;
+  color: $white;
+  font-family: Epilogue;
+  font-weight: 700;
+  font-size: medium;
+  transition: 0.5s;
+}
+
+#button:hover {
+  background-color: $white;
+  color: $black;
+  border: 1px solid $black;
+  cursor: pointer;
+  transform: scale(1.08, 1.08);
+  transition: 0.5s;
+}
+
+footer {
+  font-family: Epilogue;
+}
+
+footer a {
+  text-decoration: none;
+  font-size: smaller;
+}
+
+.clients {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+#client1 {
+  width: 25%;
+}
+
+#client2 {
+  width: 15%;
+}
+
+/*wider screens*/
+@media screen and (min-width: 960px) {
+  main {
+    width: 100%;
+  }
+
+  .nav {
+    position: static;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    position: static;
+    margin: 2rem;
+    justify-content: space-between;
+    width: 90%;
+    height: fit-content;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    pointer-events: all;
+  }
+
+  #top {
+    display: flex;
+    justify-content: space-between;
+    height: 9rem;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    width: 22rem;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+
+  .sign {
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    bottom: 0.8rem;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .navItems {
+    height: fit-content;
+    transition: 0.4s;
+  }
+
+  #company {
+    margin-right: 1.5rem;
+  }
+
+  #careers {
+    margin-right: 1.8rem;
+  }
+
+  .navItems:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    transition: 0.4s;
+  }
+
+  #careers {
+    margin-bottom: 0;
+  }
+
+  #reg {
+    width: 7rem;
+    height: 2.5rem;
+    font-family: Epilogue;
+    color: $grey;
+    border-radius: 1rem;
+    border: 2px solid $grey;
+  }
+
+  #reg:hover {
+    border: 2px solid $black;
+    cursor: pointer;
+    color: $black;
+    transform: scale(1.08, 1.08);
+    transition: 0.5s;
+  }
+
+  #login {
+    width: 7rem;
+    height: 2.5rem;
+    font-family: Epilogue;
+    color: $grey;
+    border: none;
+    position: relative;
+    right: 0.5rem;
+  }
+
+  #login:hover {
+    color: $black;
+    cursor: pointer;
+    transform: scale(1.08, 1.08);
+    transition: 0.5s;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  .logo {
+    width: 7rem;
+    margin: 2rem;
+    height: 2.5rem;
+  }
+
+  .image {
+    display: none;
+  }
+
+  .img {
+    display: inline;
+    width: 44%;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 10% 0 15%;
+    justify-content: space-between;
+    position: relative;
+    bottom: 40%;
+  }
+
+  h1 {
+    font-size: 2.7em;
+    text-align: left;
+    display: inline-block;
+    max-width: 430px;
+  }
+
+  p {
+    text-align: left;
+    max-width: 420px;
+    font-size: medium;
+  }
+
+  .text {
+    height: 17rem;
+    align-items: flex-start;
+    position: relative;
+    top: 2rem;
+  }
+
+  #left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45%;
+  }
+
+  #button {
+    width: 8rem;
+    height: 2.7rem;
+  }
+
+  #client1 {
+    width: 20%;
+  }
+
+  #client2 {
+    width: 12%;
+  }
+
+  #client3 {
+    width: 20%;
+  }
+
+  .clients {
+    margin-bottom: 0;
+  }
+}
+
+footer a {
+  font-size: medium;
+}
+
+/*desktop styling*/
+@media screen and (min-width: 1260px) {
+  h1 {
+    font-size: 3.6em;
+  }
+
+  .img {
+    width: 39%;
+  }
+
+  .text {
+    height: 18rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  h1 {
+    max-width: 480px;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  p {
+    font-size: larger;
+    max-width: 30rem;
+  }
+
+  .navbar {
+    width: 27rem;
+  }
+
+  .text {
+    height: 20rem;
+  }
+
+  #left {
+    width: 50%;
+    position: relative;
+    top: 2rem;
+  }
+
+  .clients {
+    width: 100%;
+    position: relative;
+    bottom: 2rem;
+  }
+
+  #client1 {
+    width: 23%;
+  }
+
+  #client2 {
+    width: 15%;
+  }
+}
+
+/* styling for smaller phones */
+@media screen and (max-width: 370px) {
+  p {
+    font-size: 16px;
+    max-width: 350px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
