@@ -176,6 +176,7 @@ body {
   border-radius: 1rem;
   border: 2px solid hsl(0, 0%, 41%);
   transition: 0.5s;
+  background-color: hsl(0, 0%, 98%);
 }
 
 #reg:hover {
@@ -195,6 +196,7 @@ body {
   position: static;
   margin-bottom: 0.5rem;
   transition: 0.5s;
+  background-color: hsl(0, 0%, 98%);
 }
 
 #login:hover {
